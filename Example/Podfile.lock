@@ -1,0 +1,16 @@
+PODS:
+  - AnimatingGroupButton (0.1.0)
+
+DEPENDENCIES:
+  - AnimatingGroupButton (from `../`)
+
+EXTERNAL SOURCES:
+  AnimatingGroupButton:
+    :path: ../
+
+SPEC CHECKSUMS:
+  AnimatingGroupButton: ef3ef7f71064cd20de1b29f43de6c068df8e9e8a
+
+PODFILE CHECKSUM: 335836e71044103c84d65794f40b0a3f5295429a
+
+COCOAPODS: 1.2.0.beta.1
