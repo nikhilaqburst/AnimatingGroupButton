@@ -1,9 +1,9 @@
 {
   "name": "AnimatingGroupButton",
   "version": "0.1.0",
-  "summary": "A short description of AnimatingGroupButton.",
-  "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/<GITHUB_USERNAME>/AnimatingGroupButton",
+  "summary": "A subclass on UIButton that provides a animation.",
+  "description": "This CocoaPod provides the ability to use a UIButton with animation.",
+  "homepage": "https://github.com/nikhila12345/AnimatingGroupButton",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -12,7 +12,7 @@
     "Nikhila Mohan": "nikhila@qburst.com"
   },
   "source": {
-    "git": "https://github.com/<GITHUB_USERNAME>/AnimatingGroupButton.git",
+    "git": "https://github.com/nikhila12345/AnimatingGroupButton.git",
     "tag": "0.1.0"
   },
   "platforms": {

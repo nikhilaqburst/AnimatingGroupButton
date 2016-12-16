@@ -7,11 +7,15 @@
 //
 
 import UIKit
+import AnimatingGroupButton
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let buttonGroup = AnimatingGroupButton(frame: CGRect(origin: CGPoint(x: 5,y :30), size: CGSize(width: 325, height: 50)))
+        self.view.addSubview(buttonGroup)
+
         // Do any additional setup after loading the view, typically from a nib.
     }
 
