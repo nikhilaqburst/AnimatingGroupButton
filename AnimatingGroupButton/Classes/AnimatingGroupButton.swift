@@ -85,30 +85,35 @@ public  class AnimatingGroupButton: UIButton {
     }
     
     
-    open func buttonPressed(_ sender: UIButton)
+    func buttonPressed(_ sender: UIButton)
     {
         if sender.tag != previousTag
         {
             
             let startShape = UIBezierPath()
+            let endShape = UIBezierPath()
+            
             var newRect = CGRect(x: 0, y: 0, width: 100, height: 100)
             let xOffset = self.getxOffsetAndMultiplier(sender).xOffset
             let multiplier = self.getxOffsetAndMultiplier(sender).multiplier
             
             
             newRect = CGRect(x: xOffset, y: 0, width: (previousRect.size.width)*CGFloat(multiplier), height: previousRect.size.height)
-            startShape.cgPath = UIBezierPath(roundedRect: newRect, cornerRadius: CGFloat(cornerRadius)).cgPath
+            let path = UIBezierPath(roundedRect: newRect, cornerRadius: 25)
             
-            let endShape = UIBezierPath(roundedRect: sender.frame, cornerRadius: CGFloat(cornerRadius)).cgPath
+            let endPath = UIBezierPath(roundedRect: sender.frame, cornerRadius: 25)
             
             if sender.tag>previousTag
             {
                 let animation = CABasicAnimation(keyPath: "strokeEnd")
                 animation.duration = animationTime // duration is 0.4 sec
-                animation.fromValue = 0.0;
-                animation.toValue = 1.0;
+                animation.fromValue = 0;
+                animation.toValue = 1
                 
                 subLayer.add(animation, forKey: "strokeEndAnimation")
+                startShape.cgPath = path.reversing().cgPath;
+                endShape.cgPath = endPath.reversing().cgPath
+                
                 
             }
             else
@@ -119,16 +124,20 @@ public  class AnimatingGroupButton: UIButton {
                 animation.toValue = 1.0;
                 
                 subLayer.add(animation, forKey: "strokeEndAnimation")
+                startShape.cgPath = path.cgPath;
+                endShape.cgPath = endPath.cgPath
+                
                 
             }
             subLayer.path = startShape.cgPath
             self.layer.addSublayer(subLayer)
             
-            let dispatchTime = DispatchTime.now() + animationTime/2
+            let dispatchTime = DispatchTime.now() + animationTime-0.1
             DispatchQueue.main.asyncAfter(deadline: dispatchTime) {
                 // your function here
                 
-                self.subLayer.path = endShape
+                self.subLayer.path = endShape.cgPath;
+                
             }
             
             previousRect = sender.frame
