@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'AnimatingGroupButton'
-  s.version          = '0.1.5'
+  s.version          = '0.1.6'
   s.summary          = 'A subclass on UIButton that provides a animation.'
 
 # This description is used to generate tags and improve search results.
