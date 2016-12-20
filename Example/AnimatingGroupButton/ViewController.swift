@@ -13,8 +13,12 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let buttonGroup = AnimatingGroupButton(frame: CGRect(origin: CGPoint(x: 5,y :30), size: CGSize(width: 325, height: 50)))
-        self.view.addSubview(buttonGroup)
+        let button = AnimatingGroupButton(frame: CGRect(x: 30, y: 100, width: 300, height: 50))
+        button.firstButtonTitle = "One"
+        button.middleButtonTitle = "Two"
+        button.lastButtonTitle = "Three"
+        button.setTitleColor(UIColor.red, for: .normal)
+        self.view.addSubview(button)
 
         // Do any additional setup after loading the view, typically from a nib.
     }
